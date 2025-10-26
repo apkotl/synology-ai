@@ -1,0 +1,25 @@
+<script type="text/html" data-template-name="custom-auth">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-apiKey"><i class="fa fa-key"></i> API Key</label>
+        <input type="password" id="node-config-input-apiKey" placeholder="Enter API Key" data-credential="apiKey">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('custom-auth', {
+        category: 'config',
+        defaults: {
+            name: { value: "" }
+        },
+        credentials: {
+            apiKey: { type: "password" }
+        },
+        label: function() {
+            return this.name || "custom-auth";
+        }
+    });
+</script>

@@ -1,0 +1,70 @@
+services:
+  node-red-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ARG_SETTINGS_FILE: ${RED_SETTINGS_1}
+    container_name: red${APP_NAME_1}
+    restart: unless-stopped
+    environment:
+      - TZ=${APP_TZ}
+      - NODE_RED_CREDENTIAL_SECRET=${RED_KEY_1}
+    ports:
+      - "${RED_PORT_1}:${RED_PORT}"
+    networks:
+      - node-red-net
+    volumes:
+      - node-red-data${APP_NAME_1}:/data
+      - ./settings${APP_NAME_1}.js:/data/settings.js
+      - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
+
+  node-red-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ARG_SETTINGS_FILE: ${RED_SETTINGS_2}
+    container_name: red${APP_NAME_2}
+    restart: unless-stopped
+    environment:
+      - TZ=${APP_TZ}
+      - NODE_RED_CREDENTIAL_SECRET=${RED_KEY_2}
+    ports:
+      - "${RED_PORT_2}:${RED_PORT}"
+    networks:
+      - node-red-net
+    volumes:
+      - node-red-data${APP_NAME_2}:/data
+      - ./settings${APP_NAME_2}.js:/data/settings.js
+      - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
+
+  node-red-3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ARG_SETTINGS_FILE: ${RED_SETTINGS_3}
+    container_name: red${APP_NAME_3}
+    restart: unless-stopped
+    environment:
+      - TZ=${APP_TZ}
+      - NODE_RED_CREDENTIAL_SECRET=${RED_KEY_3}
+    ports:
+      - "${RED_PORT_3}:${RED_PORT}"
+    networks:
+      - node-red-net
+    volumes:
+      - node-red-data${APP_NAME_3}:/data
+      - ./settings${APP_NAME_3}.js:/data/settings.js
+      - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
+
+
+volumes:
+  node-red-data:
+  node-red-data-user-a:
+  node-red-data-user-b:
+
+
+networks:
+  node-red-net:

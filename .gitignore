@@ -17,3 +17,5 @@ mcp/src/**/*.py[co]
 mcp/src/**/*$py.class
 mcp/.python-version
 
+# red
+red/settings*.js

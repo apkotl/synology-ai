@@ -1,0 +1,11 @@
+{
+  "name": "node-red-contrib-custom-auth",
+  "version": "1.0.0",
+  "description": "Custom Auth Node-RED nodes",
+  "node-red": {
+    "nodes": {
+      "custom-auth": "custom-auth.js",
+      "use-auth": "use-auth.js"
+    }
+  }
+}

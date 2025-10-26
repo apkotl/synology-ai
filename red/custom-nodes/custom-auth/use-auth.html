@@ -1,0 +1,46 @@
+<script type="text/html" data-template-name="use-auth">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-auth"><i class="fa fa-key"></i> Auth Node</label>
+        <input type="text" id="node-input-auth">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="use-auth">
+    <p>The <b>use-auth</b> node retrieves credentials from a <b>custom-auth</b> configuration node.</p>
+    <p>Select an existing <b>Custom Auth</b> config node or create a new one using the dropdown in the editor.</p>
+    <p>When a message is received, the node forwards the message and attaches the API key to <code>msg.apiKey</code>. The original payload is preserved.</p>
+</script>
+
+<script type="text/javascript">
+    (function() {
+        function prepareAuthSelector() {
+            var $auth = $("#node-input-auth");
+            if ($auth.typedInput) {
+                $auth.typedInput({
+                    default: "custom-auth",
+                    types: ["custom-auth"]
+                });
+            }
+        }
+
+        RED.nodes.registerType("use-auth", {
+            category: "function",
+            color: "#a6bbcf",
+            defaults: {
+                name: { value: "" },
+                auth: { type: "custom-auth", required: true }
+            },
+            inputs: 1,
+            outputs: 1,
+            icon: "function.png",
+            label: function() {
+                return this.name || "use-auth";
+            },
+            oneditprepare: prepareAuthSelector
+        });
+    })();
+</script>
