@@ -16,7 +16,7 @@ services:
       - node-red-net
     volumes:
       - node-red-data${APP_NAME_1}:/data
-      - ./settings${APP_NAME_1}.js:/data/settings.js
+      - ./settings${APP_NAME_1}.js:/data/settings.js:ro
       - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
 
   node-red-2:
@@ -36,7 +36,7 @@ services:
       - node-red-net
     volumes:
       - node-red-data${APP_NAME_2}:/data
-      - ./settings${APP_NAME_2}.js:/data/settings.js
+      - ./settings${APP_NAME_2}.js:/data/settings.js:ro
       - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
 
   node-red-3:
@@ -56,7 +56,7 @@ services:
       - node-red-net
     volumes:
       - node-red-data${APP_NAME_3}:/data
-      - ./settings${APP_NAME_3}.js:/data/settings.js
+      - ./settings${APP_NAME_3}.js:/data/settings.js:ro
       - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
 
 
