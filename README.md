@@ -23,7 +23,6 @@ sudo docker-compose down
 sudo docker-compose down -v
 sudo docker-compose down --volumes
 
-
 ```
 
 ## Other docker commands
