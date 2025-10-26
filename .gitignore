@@ -1,0 +1,18 @@
+
+.DS_Store
+
+# [all]
+.idea
+.vscode
+.venv
+.env
+LOG_*.md
+
+
+# mcp/src
+mcp/src/.venv*/
+mcp/src/**/__pycache__/
+mcp/src/**/*.py[co]
+mcp/src/**/*$py.class
+mcp/.python-version
+

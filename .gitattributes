@@ -1,0 +1,4 @@
+*.sh text eol=lf
+.env.template eol=lf
+pyproject.toml eol=lf
+uv.lock eol=lf
