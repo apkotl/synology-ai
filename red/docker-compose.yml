@@ -1,5 +1,6 @@
 services:
   node-red-1:
+    user: root
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,6 +21,7 @@ services:
       - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
 
   node-red-2:
+    user: root
     build:
       context: .
       dockerfile: Dockerfile
@@ -40,6 +42,7 @@ services:
       - ./custom-nodes/custom-auth:/usr/src/node-red/node_modules/node-red-contrib-custom-auth
 
   node-red-3:
+    user: root
     build:
       context: .
       dockerfile: Dockerfile
